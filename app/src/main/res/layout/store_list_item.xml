@@ -12,6 +12,7 @@
         android:gravity="center_vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/storeLogoImg"
             android:layout_width="40dp"
             android:layout_height="40dp"
             app:civ_border_color="#000000"
@@ -19,6 +20,7 @@
             android:src="@mipmap/ic_launcher" />
 
         <TextView
+            android:id="@+id/nameTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="피자헛"

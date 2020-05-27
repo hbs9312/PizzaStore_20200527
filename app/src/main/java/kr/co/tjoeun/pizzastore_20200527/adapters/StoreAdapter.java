@@ -5,16 +5,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
 import kr.co.tjoeun.pizzastore_20200527.R;
 import kr.co.tjoeun.pizzastore_20200527.datas.Store;
 
-public class StoreAdapter extends ArrayAdapter {
+public class StoreAdapter extends ArrayAdapter<Store> {
 
     Context mContext;
     List<Store> mList;
@@ -40,6 +44,15 @@ public class StoreAdapter extends ArrayAdapter {
 
             row = inf.inflate(R.layout.store_list_item, null);
         }
+
+        TextView nameTxt =row.findViewById(R.id.nameTxt);
+        ImageView storeLogoImg = row.findViewById(R.id.storeLogoImg);
+
+        Store storeData = mList.get(position);
+
+        nameTxt.setText(storeData.getName());
+
+        Glide.with(mContext).load(storeData.getLogoImgUrl()).into(storeLogoImg);
 
         return row;
 
