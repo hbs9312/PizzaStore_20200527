@@ -3,7 +3,10 @@ package kr.co.tjoeun.pizzastore_20200527;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +32,18 @@ public class MainActivity extends BaseActivity {
     @Override
     public void setupEvent() {
 
+        binding.storeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Store clickedStore = stores.get(position);
+
+                Intent intent = new Intent(mContext, DetailActivity.class);
+                intent.putExtra("store",clickedStore);
+                startActivity(intent);
+
+            }
+        });
     }
 
     @Override
@@ -38,6 +53,8 @@ public class MainActivity extends BaseActivity {
 
         mStoreAdapter = new StoreAdapter(mContext, R.layout.store_list_item, stores);
         binding.storeListView.setAdapter(mStoreAdapter);
+
+
 
     }
 

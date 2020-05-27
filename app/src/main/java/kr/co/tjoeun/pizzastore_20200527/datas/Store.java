@@ -1,6 +1,8 @@
 package kr.co.tjoeun.pizzastore_20200527.datas;
 
-public class Store {
+import java.io.Serializable;
+
+public class Store implements Serializable {
 
     private String name;
     private String logoImgUrl;

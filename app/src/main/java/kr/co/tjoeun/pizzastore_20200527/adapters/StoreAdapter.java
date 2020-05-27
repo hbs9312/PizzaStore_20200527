@@ -56,6 +56,8 @@ public class StoreAdapter extends ArrayAdapter<Store> {
 
         return row;
 
+
+
     }
 }
 
